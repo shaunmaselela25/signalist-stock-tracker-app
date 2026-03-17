@@ -13,7 +13,7 @@ import {useRouter} from "next/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Logout01Icon } from "@hugeicons/core-free-icons";
-import NavItems from "@/components/ui/NavItems";
+import NavItems from "@/components/NavItems";
 import {signOut} from "@/lib/actions/auth.actions";
 import type { StockWithWatchlistStatus, User } from "@/lib/types";
 import { cn } from "@/lib/utils";
