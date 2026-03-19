@@ -4,19 +4,18 @@ import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { LogOut } from "lucide-react"
+import { SignOut } from "@hugeicons/core-free-icons"
 import NavItems from "@/components/NavItems"
 
 export const UserDropdown = () => {
-    const router: any = useRouter();
+  const router = useRouter()
 
     const handleSignOut = () => {
         router.push("/sign-in");
@@ -27,8 +26,11 @@ export const UserDropdown = () => {
 
   return (
     <DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="ghost" className="flex items-center gap-3 text-gray-4 hover:text-yellow-500">
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          className="flex items-center gap-3 text-gray-400 hover:text-yellow-500"
+        >
         <Avatar className="w-8 h-8">
           <AvatarImage src="https://cdn-icons-png.flaticon.com/128/1999/1999625.png" />
           <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">{user.name.charAt(0)}</AvatarFallback>
@@ -38,8 +40,8 @@ export const UserDropdown = () => {
           <span className="text-xs text-gray-500">{user.email}</span>
         </div>
       </Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className="text-gray-400">
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-64 text-gray-400">
       <DropdownMenuLabel>
         <div className="flex relative items-center gap-3 py-2">
           <Avatar className="w-10 h-10">
@@ -54,14 +56,14 @@ export const UserDropdown = () => {
       </DropdownMenuLabel>
       <DropdownMenuSeparator className="bg-gray-400" />
       <DropdownMenuItem onClick={handleSignOut} className="text-gray-100 text-md font-medium focus:bg-gray-700 focus:text-yellow-500 transition-colors cursor-pointer">
-        <LogOut className="w-4 h-4 mr-2 hidden sm:block" />
-        LogOut
+        <SignOut className="w-4 h-4 mr-2 hidden sm:block" />
+        Sign Out
       </DropdownMenuItem>
       <DropdownMenuSeparator className="hidden sm:block bg-gray-600" />
       <nav className="sm:hidden">
-        <NavItems />
+        <NavItems initialStocks={[]} />
       </nav>
-  </DropdownMenuContent>
-</DropdownMenu>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
